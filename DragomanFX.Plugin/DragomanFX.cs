@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using DragomanFX.Plugin.Utils;
 using UnityInjector;
 using UnityInjector.Attributes;
@@ -11,7 +10,6 @@ namespace DragomanFX.Plugin
     public class DragomanFX : PluginBase
     {
         private static string path;
-
         public static string FXPath => path ?? (path = GetFXPath());
 
         public void Awake()
@@ -19,16 +17,6 @@ namespace DragomanFX.Plugin
             DontDestroyOnLoad(this);
             Logger.LogToFile = true;
             Logger.LogLine("DragomanFX loaded!");
-        }
-
-        public void OnDestroy()
-        {
-            Logger.LogLine("Closing DragomanFX!");
-            if (Logger.LogToFile)
-            {
-                Logger.LogLine("Saving the log...");
-                Logger.SaveLog();
-            }
         }
 
         private static string GetFXPath()
@@ -50,5 +38,14 @@ namespace DragomanFX.Plugin
             return logPath;
         }
 
+        public void OnDestroy()
+        {
+            Logger.LogLine("Closing DragomanFX!");
+            if (Logger.LogToFile)
+            {
+                Logger.LogLine("Saving the log...");
+                Logger.SaveLog();
+            }
+        }
     }
 }

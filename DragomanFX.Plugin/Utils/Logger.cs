@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
 
 namespace DragomanFX.Plugin.Utils
 {
@@ -13,14 +9,14 @@ namespace DragomanFX.Plugin.Utils
         public static LogLevel Warning = new LogLevel(ConsoleColor.Yellow, "WARNING");
         public static LogLevel Error = new LogLevel(ConsoleColor.Red, "ERROR");
 
-        public ConsoleColor Color { get; }
-        public string Name { get; }
-
         public LogLevel(ConsoleColor color, string name)
         {
             Color = color;
             Name = name;
         }
+
+        public ConsoleColor Color { get; }
+        public string Name { get; }
     }
 
     public static class Logger
@@ -28,15 +24,11 @@ namespace DragomanFX.Plugin.Utils
         private const string TAG = "DragomanFX";
         private const string DEBUG_FILE_NAME = "dragoman_fx_log.log";
         private const ConsoleColor TAG_COLOR = ConsoleColor.DarkGreen;
-
         private static TextWriter logFile;
 
         public static bool LogToFile
         {
-            get
-            {
-                return logFile != null;
-            }
+            get { return logFile != null; }
             set
             {
                 if (value && logFile == null)
@@ -51,7 +43,8 @@ namespace DragomanFX.Plugin.Utils
                         LogLine(LogLevel.Error, "Failed to create the log file!");
                     }
                 }
-                else if (!value) SaveLog();
+                else if (!value)
+                    SaveLog();
             }
         }
 
