@@ -456,7 +456,7 @@
 
 //LED SHADER
 #define fLEDCircleSize			10.0	//[10.0 to 50.0] Size of the single LED's
-#define fLEDBackgroundColor	 	float3(0.2,0.2,0.2) //[0.0 to 1.0] R G and B components of background color between LED's.
+#define fLEDBackgroundColor	 	float3(0.2,0.2,0.2) //[0.0 to 1.0] R G and B components of background col*or between LED's.
 
 /*==============================================================================*\
 |                           EFFECT PARAMETERS - OVERLAYS                         |

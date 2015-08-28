@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using DragomanFX.Plugin.Shader;
+using DragomanFX.Plugin.FXParser;
 using DragomanFX.Plugin.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
