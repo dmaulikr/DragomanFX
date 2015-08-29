@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.XML" />
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\Program Files\Illusion\PlayClub\PlayClub_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
@@ -50,6 +51,7 @@
     <Compile Include="DragomanFX.cs" />
     <Compile Include="FXParser\Commands\Command.cs" />
     <Compile Include="FXParser\Commands\CommandCollection.cs" />
+    <Compile Include="FXParser\Commands\CommandDocs.cs" />
     <Compile Include="FXParser\Commands\CommandProperty.cs" />
     <Compile Include="FXParser\Properties\Property.cs" />
     <Compile Include="FXParser\Properties\PropertyCollection.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FXParser\Recipe.cs" />
     <Compile Include="Utils\Logger.cs" />
+    <Compile Include="Utils\MathHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace DragomanFX.Plugin.FXParser.Properties
 {
     public abstract class Property
     {
-        protected Property(Match match) { }
+        protected Property(string name, Match match)
+        {
+            Name = name;
+        }
 
+        public string Name { get; }
+        public abstract void ParseMinMax(string min, string max);
         public abstract override string ToString();
     }
 }

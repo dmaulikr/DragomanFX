@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace DragomanFX.Plugin.FXParser.Properties
@@ -14,23 +12,22 @@ namespace DragomanFX.Plugin.FXParser.Properties
         {
             foreach (Type type in typeof (Property).Assembly.GetTypes())
             {
-                if (type == typeof (Property) || !typeof (Property).IsAssignableFrom(type))
-                    continue;
+                if (type == typeof (Property) || !typeof (Property).IsAssignableFrom(type)) continue;
                 Regex regex = (Regex) type.GetProperty("Pattern").GetValue(null, null);
 
                 propertyTypes.Add(type, regex);
             }
         }
 
-        public static Property GetProperty(string value)
+        public static Property GetProperty(string name, string value)
         {
             Property result = null;
-            foreach (var propertyType in propertyTypes)
+            foreach (KeyValuePair<Type, Regex> propertyType in propertyTypes)
             {
                 Match match;
                 if ((match = propertyType.Value.Match(value)).Success)
                 {
-                    result = (Property) Activator.CreateInstance(propertyType.Key, match);
+                    result = (Property) Activator.CreateInstance(propertyType.Key, name, match);
                 }
             }
 

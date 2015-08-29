@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using DragomanFX.Plugin.Utils;
-using UnityInjector;
-using UnityInjector.Attributes;
 
 namespace DragomanFX.Plugin
 {
@@ -23,8 +21,7 @@ namespace DragomanFX.Plugin
         {
             string logPath = Path.Combine(Environment.CurrentDirectory, "DragomanFX");
             Logger.LogLine($"DragomanFX Data Path: {logPath}");
-            if (Directory.Exists(logPath))
-                return logPath;
+            if (Directory.Exists(logPath)) return logPath;
             try
             {
                 Directory.CreateDirectory(logPath);

@@ -43,8 +43,7 @@ namespace DragomanFX.Plugin.Utils
                         LogLine(LogLevel.Error, "Failed to create the log file!");
                     }
                 }
-                else if (!value)
-                    SaveLog();
+                else if (!value) SaveLog();
             }
         }
 
@@ -82,8 +81,7 @@ namespace DragomanFX.Plugin.Utils
 
         public static void SaveLog()
         {
-            if (!LogToFile)
-                return;
+            if (!LogToFile) return;
 
             logFile.Flush();
             logFile.Close();
